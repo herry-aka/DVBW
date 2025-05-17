@@ -77,6 +77,7 @@ best_acc = 0  # best test accuracy
 
 
 def main():
+    print("start")
     global best_acc
     start_epoch = args.start_epoch  # start from epoch 0 or last checkpoint epoch
 
@@ -97,8 +98,8 @@ def main():
     ])
 
     dataloader = datasets.CIFAR10
-    trainset = dataloader(root='./data', train=True, download=True, transform=transform_train)
-    testset = dataloader(root='./data', train=False, download=True, transform=transform_test)
+    trainset = dataloader(root='./data', train=True, download=False, transform=transform_train)
+    testset = dataloader(root='./data', train=False, download=False, transform=transform_test)
 
     # Load Datasets
     trainloader = torch.utils.data.DataLoader(
@@ -285,4 +286,4 @@ def adjust_learning_rate(optimizer, epoch):
 
 if __name__ == '__main__':
     main()
-    print("脚本已启动")
+
